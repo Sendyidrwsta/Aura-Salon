@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura Salon</title>
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .judul {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* card style */
+        .gallery-card {
+            border-radius: 15px;
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .gallery-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+</head>
+
+
+<body class="bg-pink-50 text-gray-700">
+
+    <!-- NAVBAR -->
+    <nav class="p-4 bg-white shadow">
+        <h1 class="text-2xl font-bold judul text-pink-600">Aura Salon</h1>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="text-center p-10 bg-pink-100">
+        <h2 class="text-4xl font-bold judul text-pink-700">Cantik & Nyaman di Aura Salon</h2>
+        <p class="mt-3 text-lg">Salon Khusus Perempuan, Harga terjangkau, tempat nyaman.</p>
+
+        <a href="https://wa.me/6281929708277"
+            class="mt-6 inline-block bg-pink-600 text-white px-6 py-3 rounded-full shadow hover:bg-pink-700">
+            Booking via WhatsApp
+        </a>
+    </section>
+
+    <!-- LAYANAN -->
+    <section class="p-10">
+        <h3 class="text-3xl font-bold judul text-center text-pink-700">Layanan Kami</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div class="bg-white p-5 rounded-xl shadow text-center">
+                <h4 class="text-xl font-bold">✂️ Potong Rambut</h4>
+                <p class="mt-2">Potong rambut wanita, hasil rapi dan sesuai permintaan.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow text-center">
+                <h4 class="text-xl font-bold">🌬️ Meluruskan Rambut</h4>
+                <p class="mt-2">Hasil tahan lama, aman untuk rambut.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-xl shadow text-center">
+                <h4 class="text-xl font-bold">🎨 Mewarnai Rambut</h4>
+                <p class="mt-2">Pilihan warna lengkap, hasil merata dan aman.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="p-10 bg-white">
+        <h3 class="text-3xl font-bold judul text-center text-pink-700">Kenapa Memilih Kami?</h3>
+
+        <ul class="mt-6 space-y-3 text-lg max-w-xl mx-auto">
+            <li>✔ Khusus perempuan – aman & nyaman</li>
+            <li>✔ Dikerjakan oleh pemilik langsung</li>
+            <li>✔ Harga ramah & transparan</li>
+            <li>✔ Tempat bersih & nyaman</li>
+            <li>✔ Bisa booking jam fleksibel</li>
+        </ul>
+    </section>
+
+    <!-- ========== GALLERY SECTION ========== -->
+<section class="py-16 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold mb-10 text-center text-pink-700">GALERI</h2>
+
+    <!-- WRAPPER -->
+    <div class="relative w-full overflow-hidden">
+
+      <!-- SLIDER container -->
+      <div id="slider"
+        class="flex transition-transform duration-500 ease-in-out gap-4">
+
+        <!-- ITEM 1 -->
+        <img loading="lazy"
+          src="img/img1.png"
+          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+
+        <!-- ITEM 2 -->
+        <img loading="lazy"
+          src="img/img2.png"
+          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+
+        <!-- ITEM 3 -->
+        <img loading="lazy"
+          src="img/img3.png"
+          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+
+        <!-- ITEM 4 -->
+        <img loading="lazy"
+          src="img/img4.png"
+          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+
+      </div>
+
+      <!-- LEFT BUTTON -->
+      <button id="prev"
+        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black p-3 rounded-full shadow">
+        ❮
+      </button>
+
+      <!-- RIGHT BUTTON -->
+      <button id="next"
+        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black p-3 rounded-full shadow">
+        ❯
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ========= FULLSCREEN LIGHTBOX ========= -->
+<div id="lightbox"
+  class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center">
+  <img id="lightbox-img" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl">
+</div>
+
+    <!-- KONTAK -->
+    <section class="text-center p-10 bg-pink-600 text-white">
+        <h3 class="text-3xl font-bold judul">Siap Tampil Cantik?</h3>
+        <p class="mt-2 text-lg">Hubungi kami untuk booking atau tanya-tanya.</p>
+
+        <a href="https://wa.me/6281929708277"
+            class="mt-5 inline-block bg-white text-pink-700 font-bold px-6 py-3 rounded-full shadow">
+            Booking via WhatsApp
+        </a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="text-center p-5 text-sm bg-white">
+        © 2025 Aura Salon — Dibuat dengan ❤️
+    </footer>
+
+    <script>
+  const slider = document.getElementById("slider");
+  const images = document.querySelectorAll(".gallery-img");
+  const prev = document.getElementById("prev");
+  const next = document.getElementById("next");
+
+  let index = 0;
+  let autoSlide;
+
+  // Hitung jumlah slide tampil (responsif)
+  function slidesPerView() {
+    return window.innerWidth < 768 ? 1 : 2; 
+  }
+
+  function updateSlide() {
+    const slideWidth = slider.children[0].clientWidth + 16; 
+    slider.style.transform = `translateX(-${index * slideWidth}px)`;
+  }
+
+  // NEXT
+  next.onclick = () => {
+    if (index < images.length - slidesPerView()) { index++; }
+    else { index = 0; }
+    updateSlide();
+  };
+
+  // PREV
+  prev.onclick = () => {
+    if (index > 0) { index--; }
+    else { index = images.length - slidesPerView(); }
+    updateSlide();
+  };
+
+//   // Auto Slide setiap 3 detik
+//   function startAutoSlide() {
+//     autoSlide = setInterval(() => {
+//       next.click();
+//     }, 8000);
+//   }
+//   startAutoSlide();
+
+  // FULLSCREEN MODE
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+
+  images.forEach(img => {
+    img.onclick = () => {
+      lightbox.classList.remove("hidden");
+      lightboxImg.src = img.src;
+    };
+  });
+
+  // Klik di luar → tutup fullscreen
+  lightbox.onclick = () => {
+    lightbox.classList.add("hidden");
+  };
+
+  // Update slide lagi jika layar di-resize
+  window.onresize = updateSlide;
+</script>
+</body>
+
+</html>
