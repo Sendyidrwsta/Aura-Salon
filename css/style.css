@@ -1,0 +1,54 @@
+/* BIKIN GAMBAR RESPONSIVE */
+.gallery-img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;   /* batasi tinggi di HP */
+    object-fit: cover;
+}
+
+/* KHUSUS LAYAR KECIL */
+@media (max-width: 768px) {
+
+    /* bagian GALERI */
+    #slider {
+        gap: 10px !important;
+    }
+
+    .gallery-img {
+        max-height: 260px;  /* biar tidak kepanjangan di HP */
+    }
+
+    /* tombol prev / next */
+    #prev, #next {
+        padding: 6px 10px;
+        top: 50%;
+    }
+}
+/* Gallery Images Responsive Fix */
+.gallery-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Responsive Slider */
+@media (max-width: 768px) {
+
+    /* Kurangi tinggi agar tidak “nge-zoom” */
+    .gallery-img {
+        max-height: 260px;
+    }
+
+    /* Atur tombol slider agar tidak menutupi gambar */
+    #prev, #next {
+        padding: 6px 10px;
+        top: 50%;
+    }
+
+    /* Kurangi gap antar slide */
+    #slider {
+        gap: 10px !important;
+    }
+}
+
