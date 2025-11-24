@@ -4,153 +4,216 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aura Salon</title>
+    <title>Aura Salon — Cantik & Nyaman</title>
 
-    <!-- Tailwind CDN -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        salon: "#ec4899",
+                    },
+                },
+            },
+        };
+    </script>
 
-    <!-- Font -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap"
-        rel="stylesheet">
+    <!-- Preline (untuk Hamburger Menu) -->
+    <script src="https://cdn.jsdelivr.net/npm/preline/dist/preline.js"></script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 
-
-<body class="bg-pink-50 text-gray-700">
+<body class="bg-gray-50">
 
     <!-- NAVBAR -->
-    <nav class="p-4 bg-white shadow">
-        <h1 class="text-2xl font-bold judul text-pink-600">Aura Salon</h1>
-    </nav>
+    <header class="sticky top-0 bg-white shadow z-50">
+        <nav class="flex justify-between items-center px-6 py-4">
+            <h1 class="text-2xl font-bold text-salon text-pink-600">Aura Salon</h1>
 
-    <!-- HERO SECTION -->
-    <section class="text-center p-10 bg-cover bg-center bg-no-repeat h-[500px]" style="background-image: url('img/hero-bg2.jpg');">
-        <h2 class="text-4xl font-bold judul text-pink-700">Cantik & Nyaman di Aura Salon</h2>
-        <p class="mt-3 text-lg text-black">Salon Khusus Perempuan, Harga terjangkau, tempat nyaman.</p>
+            <!-- Hamburger -->
+            <button type="button"
+                class="hs-collapse-toggle md:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg border border-gray-300"
+                data-hs-collapse="#mobileMenu">
+                <svg class="hs-collapse-open:hidden w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
 
-        <a href="https://wa.me/6281929708277"
-            class="mt-6 inline-block bg-pink-600 text-white px-6 py-3 rounded-full shadow hover:bg-pink-700">
-            Booking via WhatsApp
-        </a>
-    </section>
+                <svg class="hs-collapse-open:block hidden w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
 
-    <!-- LAYANAN -->
-    <section class="p-10">
-        <h3 class="text-3xl font-bold judul text-center text-pink-700">Layanan Kami</h3>
+            <!-- MENU Desktop -->
+            <ul class="hidden md:flex gap-6 text-gray-700 font-medium">
+                <li><a href="#hero" class="hover:text-salon">Beranda</a></li>
+                <li><a href="#layanan" class="hover:text-salon">Layanan</a></li>
+                <li><a href="#gallery" class="hover:text-salon">Galeri</a></li>
+                <li><a href="#kontak" class="hover:text-salon">Kontak</a></li>
+            </ul>
+        </nav>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div class="bg-white p-5 rounded-xl shadow text-center">
-                <h4 class="text-xl font-bold">✂️ Potong Rambut</h4>
-                <p class="mt-2">Potong rambut wanita, hasil rapi dan sesuai permintaan.</p>
-            </div>
+        <!-- MENU Mobile -->
+        <div id="mobileMenu" class="hs-collapse hidden md:hidden bg-white px-6 pb-4 shadow">
+            <ul class="flex flex-col gap-4 text-gray-700 font-medium">
+                <li><a href="#hero" class="hover:text-salon">Beranda</a></li>
+                <li><a href="#layanan" class="hover:text-salon">Layanan</a></li>
+                <li><a href="#gallery" class="hover:text-salon">Galeri</a></li>
+                <li><a href="#kontak" class="hover:text-salon">Kontak</a></li>
+            </ul>
+        </div>
+    </header>
 
-            <div class="bg-white p-5 rounded-xl shadow text-center">
-                <h4 class="text-xl font-bold">🌬️ Meluruskan Rambut</h4>
-                <p class="mt-2">Hasil tahan lama, aman untuk rambut.</p>
-            </div>
+    <!-- HERO -->
+    <section id="hero"
+        class="relative text-center bg-cover bg-center bg-no-repeat h-[550px] flex flex-col justify-center"
+        style="background-image: url('img/hero-bg2.jpg');">
 
-            <div class="bg-white p-5 rounded-xl shadow text-center">
-                <h4 class="text-xl font-bold">🎨 Mewarnai Rambut</h4>
-                <p class="mt-2">Pilihan warna lengkap, hasil merata dan aman.</p>
-            </div>
+        <!-- Overlay gelap -->
+        <div class="absolute inset-0 bg-black/40"></div>
+
+        <div class="relative px-6">
+            <h2 class="text-3xl md:text-5xl font-bold text-pink-600 judul drop-shadow-lg">
+                Cantik & Nyaman Di Aura Salon
+            </h2>
+
+            <p class="mt-4 text-lg md:text-xl text-white font-semibold drop-shadow">
+                Salon Khusus Perempuan • Harga Terjangkau • Tempat Nyaman
+            </p>
+
+            <a href="https://wa.me/6281929708277"
+                class="mt-6 inline-block bg-salon text-white px-6 py-3 rounded-full shadow hover:bg-pink-700 transition">
+                Booking via WhatsApp
+            </a>
         </div>
     </section>
 
-    <!-- KEUNGGULAN -->
-    <section class="p-10 bg-white">
-        <h3 class="text-3xl font-bold judul text-center text-pink-700">Kenapa Memilih Kami?</h3>
+    <!-- LAYANAN -->
+    <section id="layanan" class="py-16 px-6 text-center">
+        <h3 class="text-3xl font-bold text-salon">Layanan Kami</h3>
 
-        <ul class="mt-6 space-y-3 text-lg max-w-xl mx-auto">
-            <li>✔ Khusus perempuan – aman & nyaman</li>
-            <li>✔ Dikerjakan oleh pemilik langsung</li>
-            <li>✔ Harga ramah & transparan</li>
-            <li>✔ Tempat bersih & nyaman</li>
-            <li>✔ Bisa booking jam fleksibel</li>
-        </ul>
+        <div class="grid md:grid-cols-3 gap-8 mt-10">
+
+            <div class="p-6 bg-white shadow-lg rounded-xl">
+                <img src="img/cut.png" class="mx-auto w-16 h-16 mb-3" alt="Ikon Gunting">
+                <h4 class="text-xl font-semibold">Potong Rambut</h4>
+                <p class="text-gray-600 mt-2">Potong Rambut Wanita Hasil Rapi Dan Sesuai Permintaan.</p>
+            </div>
+
+            <div class="p-6 bg-white shadow-lg rounded-xl">
+                <img src="img/smoot.png" class="mx-auto w-16 h-16 mb-3" alt="Ikon Creambath">
+                <h4 class="text-xl font-semibold">Smoothing</h4>
+                <p class="text-gray-600 mt-2">Hasil Tahan Lama Aman Untuk Rambut.</p>
+            </div>
+
+            <div class="p-6 bg-white shadow-lg rounded-xl">
+                <img src="img/cat.png" class="mx-auto w-16 h-16 mb-3" alt="Ikon Hair Spa">
+                <h4 class="text-xl font-semibold">Semir Rambut</h4>
+                <p class="text-gray-600 mt-2">Pemilihan Warna Lengkap Hasil Merata Dan Aman.</p>
+            </div>
+
+        </div>
     </section>
+    <!-- KEUNGGULAN -->
+  <section class="p-10 bg-white">
+    <h3 class="text-3xl font-bold judul text-center text-pink-600">Kenapa Memilih Aura Salon?</h3>
+
+    <ul class="mt-6 space-y-3 text-lg max-w-xl mx-auto">
+      <li>✔ Khusus perempuan – aman & nyaman</li>
+      <li>✔ Dikerjakan oleh pemilik langsung</li>
+      <li>✔ Harga ramah & transparan</li>
+      <li>✔ Tempat bersih & nyaman</li>
+      <li>✔ Bisa booking jam fleksibel</li>
+    </ul>
+  </section>
 
     <!-- ========== GALLERY SECTION ========== -->
-<section id="gallery" class="py-10 md:py-14">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-10 text-center text-pink-700">GALERI</h2>
+  <section id="gallery" class="py-10 md:py-14">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl text-salon font-bold mb-10 text-center text-pink-600">GALERI</h2>
+      <!-- WRAPPER -->
+      <div class="relative w-full overflow-hidden">
 
-    <!-- WRAPPER -->
-    <div class="relative w-full overflow-hidden">
+        <!-- SLIDER container -->
+        <div id="slider" class="flex transition-transform duration-500 ease-in-out gap-4">
 
-      <!-- SLIDER container -->
-      <div id="slider"
-        class="flex transition-transform duration-500 ease-in-out gap-4">
+          <!-- ITEM 1 -->
+          <img loading="lazy" src="img/img1.png"
+            class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
 
-        <!-- ITEM 1 -->
-        <img loading="lazy"
-          src="img/img1.png"
-          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+          <!-- ITEM 2 -->
+          <img loading="lazy" src="img/img2.png"
+            class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
 
-        <!-- ITEM 2 -->
-        <img loading="lazy"
-          src="img/img2.png"
-          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+          <!-- ITEM 3 -->
+          <img loading="lazy" src="img/img3.png"
+            class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
 
-        <!-- ITEM 3 -->
-        <img loading="lazy"
-          src="img/img3.png"
-          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+          <!-- ITEM 4 -->
+          <img loading="lazy" src="img/img4.png"
+            class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
 
-        <!-- ITEM 4 -->
-        <img loading="lazy"
-          src="img/img4.png"
-          class="gallery-img w-full md:w-1/2 flex-shrink-0 rounded-xl shadow-lg hover:shadow-2xl cursor-pointer transition-shadow" />
+        </div>
 
+        <!-- LEFT BUTTON -->
+        <button id="prev"
+          class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black p-3 rounded-full shadow">
+          ❮
+        </button>
+
+        <!-- RIGHT BUTTON -->
+        <button id="next"
+          class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black p-3 rounded-full shadow">
+          ❯
+        </button>
       </div>
-
-      <!-- LEFT BUTTON -->
-      <button id="prev"
-        class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black p-3 rounded-full shadow">
-        ❮
-      </button>
-
-      <!-- RIGHT BUTTON -->
-      <button id="next"
-        class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-black p-3 rounded-full shadow">
-        ❯
-      </button>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ========= FULLSCREEN LIGHTBOX ========= -->
-<div id="lightbox"
-  class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center">
-  <img id="lightbox-img" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl">
-</div>
+    <!-- ========= FULLSCREEN LIGHTBOX ========= -->
+  <div id="lightbox" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center">
+    <img id="lightbox-img" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl">
+  </div>
+
 
     <!-- KONTAK -->
-    <section class="text-center p-10 bg-pink-600 text-white">
-        <h3 class="text-3xl font-bold judul">Siap Tampil Cantik?</h3>
-        <p class="mt-2 text-lg">Hubungi kami untuk booking atau tanya-tanya.</p>
+    <section id="kontak" class="text-center p-10 bg-salon text-white">
+        <h3 class="text-3xl font-bold">Siap Tampil Cantik?</h3>
+        <p class="mt-2 text-lg">Hubungi kami atau lihat lokasi salon.</p>
 
         <a href="https://wa.me/6281929708277"
-            class="mt-5 inline-block bg-white text-pink-700 font-bold px-6 py-3 rounded-full shadow">
+            class="mt-5 inline-block bg-white text-salon font-bold px-6 py-3 rounded-full shadow">
             Booking via WhatsApp
         </a>
+
+        <!-- PETA -->
+        <div class="mt-8">
+            <p class="mb-3 font-semibold">Alamat Salon: <span class="opacity-70">CJ4X+WCC Tj. Binga, Kabupaten Belitung, Kepulauan Bangka Belitung</span></p>
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3985.734100704276!2d107.64592157496897!3d-2.592702397385337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMsKwMzUnMzMuNyJTIDEwN8KwMzgnNTQuNiJF!5e0!3m2!1sid!2sid!4v1763976019849!5m2!1sid!2sid" 
+          width="100%" 
+          height="300" 
+          style="border:10px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="text-center p-5 text-sm bg-white">
+    <footer class="text-center p-5 text-sm bg-white mt-6">
         © 2025 Aura Salon — Dibuat dengan ❤️
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-
